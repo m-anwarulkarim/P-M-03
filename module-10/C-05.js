@@ -1,3 +1,4 @@
+// 1.join() 2.existsSync() 3.mkdirSync 4.mkdir 5.{ recursive: true } 6.Object.entries() 7.statSync() 8.isDirectory()
 /*
 
  File Organizer Project (Full Explanation with Detailed Comments)
@@ -94,6 +95,7 @@ function initializeDirectories() {
 
   // organized folder এর মধ্যে category অনুযায়ী sub-folder তৈরি করো
   Object.keys(categories).forEach((category) => {
+    // Object.keys(categories) এর দ্বারা object এর key গুলোকে নিয়ে একটি array বানিয়ে দেয়
     const categoryPath = path.join(organizedDir, category);
     if (!fs.existsSync(categoryPath)) {
       fs.mkdirSync(categoryPath);
@@ -109,6 +111,7 @@ function getCategory(filename) {
   const ext = path.extname(filename).toLowerCase(); // file extension বের করা
 
   // categories object iterate করে match খোঁজা
+  // এখানে category   কে  array  বানাচছে । সেই array থেকে Destructur করা হচ্ছে
   for (const [category, extensions] of Object.entries(categories)) {
     if (extensions.includes(ext)) {
       return category; // match হলে category return করো

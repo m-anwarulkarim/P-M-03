@@ -1,3 +1,14 @@
+/* fs এটি node js এর built-in module
+ fs দিয়ে আমরা করতে পা্রবো :
+
+ file read
+ file write
+ file delete
+ file rename
+ folder create/remove
+ file information check
+ */
+
 /*  
 
 📘 ⁡⁣⁣⁢Reading Files with the fs Module⁡
