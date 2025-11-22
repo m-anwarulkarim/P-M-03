@@ -1,0 +1,47 @@
+Node.js এসেছে ওয়েব ডেভেলপমেন্টের landscape-এ একটি বড় পরিবর্তন আনার জন্য। আসুন step by step বুজি:
+
+1️⃣ ব্যাকগ্রাউন্ড: Traditional Web Servers
+
+আগের ওয়েব অ্যাপ্লিকেশনগুলো সাধারণত LAMP stack (Linux, Apache, MySQL, PHP) বা Java/.NET এ তৈরি হতো।
+
+এগুলো blocking I/O ব্যবহার করতো। অর্থাৎ, যখন সার্ভার কোনো ডেটাবেস query করে বা ফাইল পড়ে, তখন সার্ভার সেই কাজ শেষ না হওয়া পর্যন্ত অন্য request handle করতে পারতো না।
+
+বড় ওয়েব অ্যাপ্লিকেশন বা রিয়েল-টাইম অ্যাপ্লিকেশন (যেমন chat apps) এই ধরনের synchronous behaviour-এ slow হয়ে যেতো।
+
+2️⃣ JavaScript’s Role
+
+মূলত JavaScript browser-এর মধ্যে run হতো।
+
+2009 সালে Ryan Dahl দেখলেন: JavaScript কি server-side এ run করা যায় এবং asynchronous I/O handle করতে পারে?
+
+এই ভাবনা থেকেই জন্ম নিল Node.js।
+
+3️⃣ Node.js কি করে আলাদা?
+
+Non-blocking, event-driven architecture:
+
+একবারে অনেক request handle করতে পারে।
+
+CPU idle থাকে না, I/O operations asynchronous হয়।
+
+Single-threaded:
+
+Multiple threads না থাকলেও, asynchronous callbacks দিয়ে concurrency achieve করা যায়।
+
+V8 Engine ব্যবহার করে:
+
+Google Chrome-এর fast JavaScript engine দিয়ে JS code সার্ভার-সাইডে run করে।
+
+4️⃣ Node.js-এর সুবিধা
+
+Real-time applications: chat apps, live notifications, multiplayer games সহজে তৈরি করা যায়।
+
+Scalability: millions of concurrent connections efficiently handle করা যায়।
+
+Fullstack JS: একই language (JavaScript) দিয়ে client এবং server উভয় লিখা যায়।
+
+NPM ecosystem: ready-made modules দিয়ে rapid development সম্ভব।
+
+5️⃣ সংক্ষেপে
+
+Node.js এসেছে server-side JavaScript এর concept কে বাস্তবে রূপ দেয়ার জন্য। এটা asynchronous, event-driven এবং scalable architecture নিয়ে আসে যা আগে conventional server frameworks সহজে দিতে পারতো না।

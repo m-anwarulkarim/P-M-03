@@ -1,0 +1,14 @@
+1. Reading Files with the fs Module
+2. Writing and Appending Files with the fs Module
+3. Deleting Files with the fs Module
+4. ntroduction to the path Module
+5. Building a Simple File Organizer CLI part-1
+6. Building a Simple File Organizer CLI part-2
+7. Introduction to the os Module
+8. Hashing Data with the crypto Module
+9. Encrypting and Decrypting Data with the crypto
+10. Using dotenv with Configuration
+11. Module Summary
+//*********************
+150 minit
+
