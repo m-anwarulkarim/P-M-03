@@ -13,6 +13,7 @@
 এখানে আমরা step-by-step ব্যাখ্যা যোগ করেছি যাতে প্রতিটি অংশ সহজে বোঝা যায়।
 
 */
+// fs & path module import করা হলো। Node.js এর built-in module, আলাদাভাবে install করতে হয় না
 
 const fs = require("fs"); // File System module - ফাইল তৈরি, পড়া, কপি করার জন্য
 const path = require("path"); // Path handling module - file path এবং extension handle করতে
