@@ -27,7 +27,9 @@ console.log("Free RAM:", os.freemem()); // ফ্রি RAM (bytes এ)
 
 /* ----------------------------------------------------------------------
  3) CPU Related
- CPU cores এবং system load
+ ==> : CPU মানে = Central Processing Unit
+ ==> : এটি কম্পিউটারের "মস্তিষ্ক" যেখানে সব calculation, processing, logic execute হয়
+ ==> : Node.js এ CPU তথ্য জানা server performance optimization এ খুব জরুরি
 ---------------------------------------------------------------------- */
 
 console.log("CPU Details:", os.cpus()); // CPU core details
