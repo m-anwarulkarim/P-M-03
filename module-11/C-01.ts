@@ -19,7 +19,6 @@
 /* SECTION
 ⚡ TypeScript + .env setup class note
 - tsconfig.json তৈরি করা হয়ে গেছে
-- type info package.json থেকে move করা যাবে
 - dotenv দিয়ে environment variables ব্যবহার করা হবে
 */
 
@@ -30,8 +29,9 @@ import path from "path"; // ✅ path module import
 // 🌱 dotenv setup
 // ===========================================================
 dotenv.config({
-  // process.cwd() → project current folder
-  // ".env" → root folder এর .env ফাইল
+  /* dotenv.config() মূলত .env ফাইলটা ওপেন করছে
+   process.cwd() → project এর বর্তমান folder বোঝাচ্ছে
+   ".env" → root folder এ .env ফাইল এর সাথে connect করা হলো*/
   path: path.join(process.cwd(), ".env"),
 });
 
@@ -52,17 +52,21 @@ const server: Server = http.createServer(
   (req: IncomingMessage, res: ServerResponse) => {
     console.log(" New request received!");
 
-    // =======================================================
-    // 🔎 Request check
-    // =======================================================
-    // req.url → কোন path hit হয়েছে
-    // req.method → কোন HTTP method ব্যবহার হয়েছে (GET, POST ইত্যাদি)
+    /* =======================================================
+ 🔎 Request check
+  =======================================================
+ ==>:req-এর ভিতরে কী থাকে? : 1 URL 2.method (GET, POST ....) 3.headers 4.body 5.query
+
+ ==>:req.url → কোন path hit হয়েছে
+ ==>:req.method → কোন HTTP method ব্যবহার হয়েছে (GET, POST ইত্যাদি)
+*/
     if (req.url === "/" && req.method === "GET") {
-      // =======================================================
-      // 📤 Response header set
-      // =======================================================
-      // 200 OK status
-      // content-type → JSON format
+      /* =======================================================
+    📤 Response header set
+    =======================================================
+   res-এর ভিতরে কী থাকে? 1.res.statusCode 2.res.end() 3.res.headersSent 4.res.setHeader() 5,res.getHeader() 6.res.writeHead() 7.res.write()
+    200 OK status
+    content-type → JSON format */
       res.writeHead(200, { "content-type": "application/json" });
 
       // =======================================================
