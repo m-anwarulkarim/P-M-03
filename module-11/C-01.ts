@@ -64,7 +64,12 @@ const server: Server = http.createServer(
       /* =======================================================
     📤 Response header set
     =======================================================
-   res-এর ভিতরে কী থাকে? 1.res.statusCode 2.res.end() 3.res.headersSent 4.res.setHeader() 5,res.getHeader() 6.res.writeHead() 7.res.write()
+   res-এর ভিতরে কী থাকে? 1.res.statusCode 2.res.end() : res শেষ করে 
+   3.res.headersSent (): header already পাঠানো হয়েছে কিনা check করে 
+   4.res.setHeader() 5,res.getHeader()
+    6.res.writeHead() :একসাথে: status code, headers send করে| 7.res.write()
+
+
     200 OK status
     content-type → JSON format */
       res.writeHead(200, { "content-type": "application/json" });
