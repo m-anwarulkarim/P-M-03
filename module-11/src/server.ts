@@ -1,5 +1,6 @@
 import http, { IncomingMessage, Server, ServerResponse } from "http";
 import { StatusCodes } from "http-status-codes";
+import config from "./config";
 
 const server: Server = http.createServer(
   (req: IncomingMessage, res: ServerResponse) => {
@@ -17,6 +18,6 @@ const server: Server = http.createServer(
   }
 );
 
-server.listen(5000, () => {
-  console.log("server is running....");
+server.listen(config.port, () => {
+  console.log(`server is running on ${config.port}`);
 });
