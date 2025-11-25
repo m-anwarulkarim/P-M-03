@@ -8,19 +8,19 @@
     // ==============================
     // File Layout
     // ==============================
-    "rootDir": "./src", // মূল source ফাইল কোথায় আছে
-    "outDir": "./dist", // compiled .js ফাইল কোথায় যাবে
+    "rootDir": "./src",        // মূল source ফাইল কোথায় আছে
+    "outDir": "./dist",        // compiled .js ফাইল কোথায় যাবে
 
     // ==============================
     // Environment Settings
     // ==============================
-    "module": "nodenext", // Node.js এ ES Module ব্যবহারের জন্য
-    "target": "esnext", // output .js ফাইলের ECMAScript version
+    "module": "nodenext",      // Node.js এ ES Module ব্যবহারের জন্য
+    "target": "esnext",        // output .js ফাইলের ECMAScript version
     // "types": [],
 
     // Node.js এর জন্য
-    "lib": ["esnext"], // library support (ES features)
-    "types": ["node"], // Node.js type definitions ব্যবহার করা
+    "lib": ["esnext"],          // library support (ES features)
+    "types": ["node"],          // Node.js type definitions ব্যবহার করা
     // npm install -D @types/node করতে হবে
 
     // ==============================
@@ -49,12 +49,12 @@
     // ==============================
     // Recommended Options
     // ==============================
-    "strict": true, // সব strict type checks চালু করবে
+    "strict": true,                  // সব strict type checks চালু করবে
     // "jsx": "react-jsx",            // React JSX support (React project এ)
     // "verbatimModuleSyntax": true,
-    "isolatedModules": true, // প্রতিটি ফাইল আলাদা module হিসেবে treat
+    "isolatedModules": true,          // প্রতিটি ফাইল আলাদা module হিসেবে treat
     "noUncheckedSideEffectImports": true, // side-effect import check
-    "moduleDetection": "force", // module detection method
-    "skipLibCheck": true // node_modules .d.ts check skip
+    "moduleDetection": "force",       // module detection method
+    "skipLibCheck": true              // node_modules .d.ts check skip
   }
 }
