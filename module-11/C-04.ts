@@ -14,7 +14,7 @@ import { IncomingMessage, ServerResponse } from "http";
 //   ✔ এবং কিছু return করবে না (void)
 // মূলত: প্রতিটি route কোন function দিয়ে handle হবে, তা নির্ধারণ করে
 // ===============================================================
-type RouteHandeler = (req: IncomingMessage, res: ServerResponse) => void;
+export type RouteHandeler = (req: IncomingMessage, res: ServerResponse) => void;
 
 // ===============================================================
 // 🟧 Nested Map structure
@@ -30,7 +30,7 @@ type RouteHandeler = (req: IncomingMessage, res: ServerResponse) => void;
 // প্রথম Map → method অনুযায়ী route রাখা
 // দ্বিতীয় Map → path অনুযায়ী handler রাখা
 // ===============================================================
-const route: Map<string, Map<string, RouteHandeler>> = new Map();
+export const route: Map<string, Map<string, RouteHandeler>> = new Map();
 
 // ===============================================================
 // 🟦 addRoutes ফাংশন

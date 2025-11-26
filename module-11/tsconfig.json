@@ -56,5 +56,7 @@
     "noUncheckedSideEffectImports": true, // side-effect import check
     "moduleDetection": "force", // module detection method
     "skipLibCheck": true // node_modules .d.ts check skip
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

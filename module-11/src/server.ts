@@ -1,45 +1,43 @@
 import http, { IncomingMessage, Server, ServerResponse } from "http";
 import { StatusCodes } from "http-status-codes";
 import config from "./config";
+import addRoutes, {
+  route,
+  RouteHandeler,
+} from "./config/helpers/RoyteHandeler";
+
+addRoutes("GET", "/", (req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  res.end(
+    JSON.stringify({
+      messsage: "hello from noode js with typescript ",
+      path: req.url,
+    })
+  );
+});
 
 const server: Server = http.createServer(
   (req: IncomingMessage, res: ServerResponse) => {
     console.log("server is running.....");
-    //  root rout
-    if (req.url == "/" && req.method == "GET") {
-      res.writeHead(StatusCodes.OK, { "content-type": "application/json" });
+
+    const mathod = req.method?.toUpperCase() || "";
+    const path = req.url || "";
+    const mathodMap = route.get(mathod);
+    const handeler: RouteHandeler | undefined = mathodMap?.get(path);
+
+    if (handeler) {
+      handeler(req, res);
+    } else {
+      res.statusCode = 404;
+      res.setHeader("content-type", "aplication/json");
       res.end(
         JSON.stringify({
-          message: "hello from noode js with typescript ",
-          path: req.url,
+          message: "route not found",
+          success: false,
+          path: path,
         })
       );
-    }
-    //  health rout
-    if (req.url == "/api" && req.method == "GET") {
-      res.writeHead(StatusCodes.OK, { "content-type": "application" });
-      res.end(
-        JSON.stringify({
-          message: "Health status ook ",
-          path: req.url,
-        })
-      );
-    }
-    //  users rout
-    if (req.url == "/api/users" && req.method == "POST") {
-      let body = "";
-      req.on("data", (chunk) => {
-        body += chunk;
-      });
-      req.on("end", () => {
-        try {
-          const pearsBody = JSON.parse(body);
-          console.log(pearsBody);
-          res.end(JSON.stringify(pearsBody));
-        } catch (error: any) {
-          console.log(error.message);
-        }
-      });
     }
   }
 );
