@@ -1,21 +1,7 @@
 import http, { IncomingMessage, Server, ServerResponse } from "http";
-import { StatusCodes } from "http-status-codes";
 import config from "./config";
-import addRoutes, {
-  route,
-  RouteHandeler,
-} from "./config/helpers/RoyteHandeler";
-
-addRoutes("GET", "/", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.end(
-    JSON.stringify({
-      messsage: "hello from noode js with typescript ",
-      path: req.url,
-    })
-  );
-});
+import { route, RouteHandeler } from "./config/helpers/RoyteHandeler";
+import "./routes";
 
 const server: Server = http.createServer(
   (req: IncomingMessage, res: ServerResponse) => {
@@ -30,7 +16,7 @@ const server: Server = http.createServer(
       handeler(req, res);
     } else {
       res.statusCode = 404;
-      res.setHeader("content-type", "aplication/json");
+      res.setHeader("Content-Type", "application/json");
       res.end(
         JSON.stringify({
           message: "route not found",
