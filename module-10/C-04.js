@@ -1,115 +1,121 @@
-// 1.dirname() 2.basename() 3.extname() 4.basename(name, ext) 5.parse() 6.format()
+//1.__filename 2.__dirname 3.path.dirname(path) 4.path.basename(path) 5.path.extname(path) 6.path.basename(path, ext) 7.path.parse(path) 8.path.format(object)
 
 /*
-
-
-📘 ⁡⁣⁣⁢Introduction to the Path Module (Node.js)⁡
+📘 Introduction to the Path Module (Node.js)
 ===========================================
 
 Node.js এ ফাইলের path নিয়ে কাজ করার জন্য ব্যবহৃত হয় **path module**।
 এটি দিয়ে আপনি directory, file name, extension, এবং full path—সবকিছু বিশ্লেষণ করতে পারবেন।
-
-🔥 Path Module Import (CommonJS)
--------------------------------------------
 */
 
 const path = require("path");
 
 /*
 ===========================================
-✅ 1) ⁡⁣⁣⁢Current File Info জানা — __filename & __dirname⁡
+1️⃣ Current File Info — __filename & __dirname
 ===========================================
-__filename → বর্তমান ফাইলের **full absolute path**
-__dirname → বর্তমান ফাইল **যে folder এ আছে** সেই path
+__filename → বর্তমান ফাইলের full absolute path
+__dirname  → বর্তমান ফাইল যে folder এ আছে তার path
 */
 
 console.log("Current file Info:\n");
-console.log("filename:", __filename);
-console.log("Directory:", __dirname);
+console.log("filename:", __filename); // Output উদাহরণ: /Users/anwarul/projects/pathExample.ts
+console.log("Directory:", __dirname); // Output উদাহরণ: /Users/anwarul/projects
 
-// Divider Line (Output আলাদা দেখানোর জন্য)
 console.log("\n" + "-".repeat(50) + "\n");
 
 /*
 ===========================================
-✅ 2) ⁡⁣⁣⁢Path String ঘোষণা⁡
+2️⃣ Example Path String
 ===========================================
-এখানে আমরা একটি উদাহরণ path ব্যবহার করছি যার উপর বিভিন্ন অপারেশন করব।
+এখানে আমরা একটি উদাহরণ path ব্যবহার করছি:
 */
 
 const filePath = "/shafayat/documents/nextLevel.pdf";
-
 console.log("Analyzing Path:", filePath, "\n");
 
 /*
 ===========================================
-✅ 3) ⁡⁣⁣⁢Directory Name বের করা — path.dirname()⁡
+3️⃣ Directory Name — path.dirname()
 ===========================================
+ফাইল কোন folder এর ভিতরে আছে, সেটাই দেয়
 */
-
 console.log("Directory:", path.dirname(filePath));
+// Output: /shafayat/documents
 
 /*
 ===========================================
-✅ 4) ⁡⁣⁣⁢File Name বের করা — path.basename()⁡
+4️⃣ File Name — path.basename()
 ===========================================
-basename() → full path থেকে শুধু file name (extension সহ)
+full path থেকে শুধু file name (extension সহ) নেয়
 */
-
 console.log("Base name:", path.basename(filePath));
+// Output: nextLevel.pdf
 
 /*
 ===========================================
-✅ 5) ⁡⁣⁣⁢File Extension বের করা — path.extname()⁡
+5️⃣ File Extension — path.extname()
 ===========================================
-extname() → শুধু extension ফেরত দেয়
+শুধু extension দেয়
 */
-
 console.log("File Extension:", path.extname(filePath));
+// Output: .pdf
 
 /*
 ===========================================
-✅ 6) ⁡⁣⁣⁢Extension ছাড়া File Name — basename(name, ext)⁡
+6️⃣ Extension ছাড়া File Name — basename(name, ext)
 ===========================================
+extension বাদ দিয়ে file নাম দেয়
 */
-
 console.log("File Name:", path.basename(filePath, path.extname(filePath)));
+// Output: nextLevel
 
-// Divider Line
 console.log("\n" + "-".repeat(50) + "\n");
 
 /*
 ===========================================
-✅ 7) ⁡⁣⁣⁢Full Path কে Object এ ভাঙা — path.parse()⁡
+7️⃣ Full Path কে Object এ ভাঙা — path.parse()
 ===========================================
-parse() → path কে অংশভাগে ভাগ করে object রিটার্ন করে।
+parse() → path কে অংশভাগে ভাগ করে object রিটার্ন করে
 */
-
 const parsed = path.parse(filePath);
 console.log("Parsed path object:", parsed);
 
-// Divider Line
+/* Output:
+{
+  root: '/',
+  dir: '/shafayat/documents',
+  base: 'nextLevel.pdf',
+  ext: '.pdf',
+  name: 'nextLevel'
+}
+*/
+
 console.log("\n" + "-".repeat(50) + "\n");
 
 /*
 ===========================================
-✅ 8) ⁡⁣⁣⁢Object থেকে Full Path বানানো — path.format()⁡
+8️⃣ Object থেকে Full Path বানানো — path.format()
 ===========================================
-format() → parse() করা object থেকে আবার একটি valid path তৈরি করে।
+format() → parse() করা object থেকে আবার একটি valid path তৈরি করে
 */
-
 console.log("Formatted path:", path.format(parsed));
+// Output: /shafayat/documents/nextLevel.pdf
 
 /*
 ===========================================
-🎯 Summary — কী শিখলাম?
+🎯 Summary
 ===========================================
 
-✔ `dirname()` → directory path দেয়  
-✔ `basename()` → file name (extensionসহ) দেয়  
-✔ `extname()` → শুধু extension দেয়  
-✔ `basename(name, ext)` → extension বাদ দিয়ে file নাম দেয়  
-✔ `parse()` → path কে object আকারে ভেঙে দেয়  
-✔ `format()` → object → আবার full path বানায়
+নিচে সব শেখা method গুলো **এক লাইনে:
+
+* `__filename` → বর্তমান ফাইলের full path।
+* `__dirname` → বর্তমান ফাইলের folder path।
+* `path.dirname(path)` → ফাইল কোন folder-এ আছে।
+* `path.basename(path)` → file name (extensionসহ)।
+* `path.extname(path)` → file extension।
+* `path.basename(path, ext)` → extension ছাড়া file name।
+* `path.parse(path)` → path কে object আকারে ভাঙে।
+* `path.format(object)` → object থেকে full path বানায়।
 
 */

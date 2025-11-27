@@ -1,3 +1,15 @@
+// 1.crypto module
+// 2.aes-256-cbc
+// 3.key = crypto.randomBytes(32)
+// 4. iv = crypto.randomBytes(16);
+// 5.crypto.createCipheriv()
+// 6.cipher.update()
+// 7.cipher.final()
+// 8.crypto.createDecipheriv()
+// 9.decipher.update()
+// 10.decipher.final()
+//11.crypto.randomBytes(32/16 or 256/128 bits )
+
 // ✅ ১) crypto module নিয়ে
 // crypto = Node.js এর built-in টুল, যেটা দিয়ে আমরা data নিরাপদ করতে পারি
 const crypto = require("crypto");
@@ -80,3 +92,31 @@ console.log("Decrypted : ", decrypted);
 
 // ✅ original data এবং decrypted data একই কিনা চেক করি
 console.log("match : ", sensitiveData === decrypted);
+
+/*!SECTION
+crypto module → Node.js built-in module, data নিরাপদ করার জন্য।
+
+aes-256-cbc → secure encryption algorithm, 256-bit key ব্যবহার করে।
+
+key → গোপন চাবি, যেটা ছাড়া decrypt সম্ভব নয়।
+
+iv (Initialization Vector) → extra randomness, একই data encrypt করলে output ভিন্ন হয়।
+
+crypto.createCipheriv() → encryption শুরু করার জন্য cipher তৈরি করে।
+
+cipher.update(text, "utf-8", "hex") → text কে encrypted hex string এ রূপান্তর করে।
+
+cipher.final("hex") → encryption শেষ করে।
+
+crypto.createDecipheriv() → encrypted data decrypt করার জন্য decipher তৈরি করে।
+
+decipher.update(encryptedData, "hex", "utf-8") → decrypt process শুরু।
+
+decipher.final("utf-8") → decrypt শেষ করে।
+
+encrypt() → normal text → encrypted text + IV তৈরি করে।
+
+decrypt() → encrypted text + IV → original text পুনরুদ্ধার করে।
+
+original data vs decrypted data → match check করা শেখানো হয়েছে।
+*/

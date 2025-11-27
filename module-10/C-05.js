@@ -1,4 +1,5 @@
-// 1.join() 2.existsSync() 3.mkdirSync 4.mkdir 5.{ recursive: true } 6.Object.entries() 7.statSync() 8.isDirectory()
+//1.path.join(a,b,c) 2.fs.existsSync(path/file) 3.fs.mkdirSync(path, { recursive: true }) 4.fs.mkdir(path, callback) 5.{ recursive: true } 6.Object.entries(obj) 7.fs.statSync(path) 8.stat.isDirectory()
+
 /*
 
  File Organizer Project (Full Explanation with Detailed Comments)
@@ -231,12 +232,19 @@ Diagram:
  organized/others/
 
 Summary:
-✔ fs → ফাইল read, write, copy করার জন্য ব্যবহৃত
-✔ path → ফাইলের path, extension handle করার জন্য
-✔ categories → কোন file কোন group এ যাবে তা define করে
-✔ getCategory → file কোন category তে যাবে তা return করে
-✔ organizeFiles → messy-files থেকে files organize করে category folders এ copy করে
-✔ init → messy-files & test files তৈরি করে
-✔ organize → files sort & copy করে
-✔ CLI → user command handle করে (init / organize)
+path.join(a, b, c) → আলাদা path অংশগুলোকে জোড়া দিয়ে একটি পূর্ণ path বানায়।
+
+fs.existsSync(path) → সেই path-এ file/folder আছে কিনা true/false রিটার্ন করে।
+
+fs.mkdirSync(path, { recursive: true }) → folder তৈরি করে; recursive দিলে nested foldersও তৈরি হয়।
+
+fs.mkdir(path, callback) → asynchronousভাবে folder তৈরি করে।
+
+{ recursive: true } → parent folders না থাকলে সেগুলোও বানায়।
+
+Object.entries(obj) → object এর key-value pair কে array আকারে দেয়।
+
+fs.statSync(path) → file/folder এর size, creation date, type ইত্যাদি info দেয়।
+
+stat.isDirectory() → pathটি folder কিনা চেক করে।
 */

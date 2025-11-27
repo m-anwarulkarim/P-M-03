@@ -124,15 +124,27 @@ append();
 🧠 Summary (সহজ সারাংশ)
 ===========================================
 
-✔ নতুন লেখা দিতে চাইলে → 
-   fs.writeFile, fs.writeFileSync, fs.promises.writeFile  
-   → পুরনো কনটেন্ট Replace হবে
+fs.writeFileSync(path, data) → synchronousভাবে নতুন ফাইল তৈরি বা পুরনো কনটেন্ট replace করে।
 
-✔ পুরনো লেখার শেষে নতুন লেখা যোগ করতে চাইলে → 
-   fs.appendFile, fs.appendFileSync, fs.promises.appendFile  
-   → পুরনো লেখা থাকবে, শেষে যোগ হবে
+fs.writeFile(path, data, callback) → asynchronousভাবে ফাইল লেখে; callback দিয়ে error ধরতে হয়।
 
-✔ বাস্তব প্রজেক্টে সবচেয়ে Best → 
-   Promise + async/await  
-   (Clean ও Modern Approach)
+fs.promises.writeFile(path, data) → Promise/async-await ব্যবহার করে modern file writing।
+
+fs.appendFileSync(path, data) → synchronousভাবে পুরনো ফাইলের শেষে নতুন ডাটা যোগ করে।
+
+fs.appendFile(path, data, callback) → asynchronousভাবে append করে; non-blocking।
+
+fs.promises.appendFile(path, data) → Promise/async-await দিয়ে append করা যায়।
+
+"\n" → ফাইলে নতুন লাইন যোগ করার জন্য ব্যবহৃত new line character।
+
+write → ফাইল না থাকলে তৈরি করে, থাকলে replace করে।
+
+append → ফাইলের শেষে নতুন কনটেন্ট যোগ করে, পুরনো কনটেন্ট একই থাকে।
+
+callback(err) → asynchronous fs ফাংশনের error handle করার নিয়ম।
+
+async/await → clean asynchronous file-handling system।
+
+fsPromise = require("fs").promises → fs মডিউলের promise-based methods ব্যবহারের জন্য।
 */

@@ -1,3 +1,5 @@
+// 1. os.platform() 2. os.arch() 3.os.type() 4. os.release() 5. os.hostname() 6. os.cpus() 7. cpus[0].model 8. cpus.length 9. cpus[0].speed 10. os.totalmem() 11. os.freemem() 12. os.uptime() 13. "-".repeat(50)
+
 // OS module import করা হলো। Node.js এর built-in module, আলাদাভাবে install করতে হয় না
 const os = require("os");
 
@@ -58,3 +60,25 @@ const hours = Math.floor((uptime % 86400) / 3600); // remaining hours
 const minutes = Math.floor((uptime % 3600) / 60); // remaining minutes
 
 console.log(`System Uptime: ${days} days ${hours} hours ${minutes} minutes`);
+
+/*!
+✅ এই কোডে যেগুলো নতুন শেখানো হয়েছে:
+
+os.platform() → OS platform দেখায় (win32, linux, darwin)।
+os.arch() → CPU architecture দেখায় (x64, arm)।
+os.type() → OS type দেখায় (Windows_NT, Linux, Darwin)।
+os.release() → OS এর version দেখায়।
+os.hostname() → কম্পিউটারের host name দেয়।
+
+os.cpus() → সব CPU core-এর তথ্য array আকারে দেয়।
+cpus[0].model → প্রথম CPU core-এর model।
+cpus.length → মোট কতটি CPU core আছে।
+cpus[0].speed → CPU speed (MHz)।
+
+os.totalmem() → মোট RAM (bytes)।
+os.freemem() → ফ্রি RAM (bytes)।
+
+os.uptime() → সিস্টেম কতক্ষণ চালু আছে (seconds এ)।
+
+"-".repeat(50) → ৫০ বার "-" প্রিন্ট করে এক লাইন divider বানায়।
+*/

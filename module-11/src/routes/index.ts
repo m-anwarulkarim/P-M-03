@@ -21,7 +21,6 @@ addRoutes("POST", "/api/users", async (req, res) => {
   const body = await parseBody(req);
   const users = readUser();
   const newUser = {
-    id: Date(),
     ...body,
   };
   users.push(newUser);
