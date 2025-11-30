@@ -1,155 +1,116 @@
+/*
+========================================================
+Express + TypeScript + PostgreSQL: JSON, Form Data, Pool
+========================================================
+*/
+
+/*
+১. Import libraries
+--------------------------------------------------------
+- express → main framework
+- Request, Response → TypeScript type annotations
+- pg → PostgreSQL Node.js library
+*/
 import express, { Request, Response } from "express";
+import { Pool } from "pg";
+
+/*
+২. App instance & port
+--------------------------------------------------------
+- express() call করলে একটি server instance পাওয়া যায়
+- app হলো central object, route ও middleware handle করে
+*/
 const app = express();
 const port = 5000;
 
-app.use(express.json())
-app.use(express.urlencoded())
+/*
+৩. Middleware: JSON parse
+--------------------------------------------------------
+🔹 কেন লিখি app.use(express.json())?
+- Express default-এ POST বা PUT request এর body parse করে না
+- "parse" মানে হলো data কে analyze করে machine-readable structure বা format-এ রূপান্তর করা
+- express.json() middleware JSON data parse করে এবং req.body তে রাখে
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+🔹 কী হয়:
+- Client POST request পাঠালে যেমন: { "name": "Anwar", "age": 17 }
+- Middleware parse করে: req.body = { name: "Anwar", age: 17 }
+- Route function-এ req.body.name ব্যবহার করা যায়
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
+🔹 ভুল এড়ানোর টিপস:
+- middleware না দিলে req.body হবে undefined
+- সব route-এর আগে middleware declare করতে হবে
+*/
+app.use(express.json());
 
 /*
-🔹 কেন লিখি app.use(express.json())?
-
-Express default-এ POST বা PUT request এর body parse করে না।
-
-// ** "parse শব্দের মানে হলো কোনো জিনিসকে ছোট ছোট অংশে ভাগ করে তার মানে বা structure বোঝা। কম্পিউটারে, parse করার মানে হলো কোনো text বা data কে analyze করে machine-readable structure বা format-এ রূপান্তর করা।"
-
-যদি তুমি client থেকে JSON পাঠাও, সেটাকে ব্যবহার করতে চাইলে middleware লাগবে।
-
-express.json() সেই middleware যা request body কে JSON হিসেবে parse করে এবং তা req.body তে রাখে।
-
-🔹 কী হয়
-
-client POST request পাঠায়, যেমন:
-
-{ "name": "Anwar", "age": 17 }
-
-
-middleware express.json() সেই JSON data কে parse করে:
-
-req.body = { name: "Anwar", age: 17 }
-
-
-তুমি route function-এর ভিতরে req.body.name ব্যবহার করতে পারো।
-
-🔹 ভুল এড়ানোর টিপস
-
-যদি app.use(express.json()) না দাও → req.body হবে undefined
-
-সব route-এর আগে middleware declare করতে হবে (উদাহরণ: app.use(express.json()) app.get() এর আগে)
-
-
-
-// ********************************
-app.use(express.urlencoded()) একটি middleware যা Express-এ ব্যবহার করা হয় HTML form data (URL-encoded data) parse করার জন্য। নিচে সহজভাবে ব্যাখ্যা করছি:
-
+৪. Middleware: URL-encoded Form Data parse
+--------------------------------------------------------
 🔹 কেন ব্যবহার করি?
+- HTML form সাধারণত POST method দিয়ে data পাঠায় URL-encoded format এ
+  যেমন: name=Anwar&age=17
+- express.urlencoded() সেই data parse করে object আকারে req.body তে রাখে
 
-HTML form সাধারণত POST method দিয়ে data পাঠায় URL-encoded format এ, যেমন:
-
-name=Anwar&age=17
-
-
-Express default-এ এই ধরনের data parse করে না।
-
-express.urlencoded() middleware সেই data কে object এ রূপান্তর করে req.body তে রাখে।
-
-🔹 কীভাবে কাজ করে
-
-Client form পাঠায়:
-
+🔹 কীভাবে কাজ করে:
+- Client form পাঠায়:
 <form method="POST" action="/submit">
   <input name="name" value="Anwar">
   <input name="age" value="17">
   <button type="submit">Send</button>
 </form>
-
-
-Middleware parse করে:
-
+- Middleware parse করে:
 req.body = { name: "Anwar", age: "17" }
+- Route function-এ সহজে ব্যবহার করা যায়
 
+🔹 ভুল এড়ানোর টিপস:
+- সব POST route এর আগে app.use(express.urlencoded({ extended: true })) declare করতে হবে
+- extended: true → nested objects parse করা যায়
+- extended: false → simple key-value parse হয়
 
-তুমি route function-এ সহজে ব্যবহার করতে পারো:
+🔹 নতুনদের জন্য সহজ ভাষায়:
+- Client form পাঠাচ্ছে → express.urlencoded() middleware খুলে বুঝে req.body তে দেয়
+*/
+app.use(express.urlencoded({ extended: true }));
 
-app.post("/submit", (req, res) => {
-  console.log(req.body.name); // "Anwar"
-  console.log(req.body.age);  // "17"
+/*
+৫. Example route: GET "/"
+--------------------------------------------------------
+- req → client request এর তথ্য ধারণ করে
+- res → server response পাঠানোর জন্য
+*/
+app.get("/", (req: Request, res: Response) => {
+  res.send("Hello World!");
 });
 
-🔹 ভুল এড়ানোর টিপস
+/*
+৬. PostgreSQL + Pool setup
+--------------------------------------------------------
+- npm install pg দিয়ে PostgreSQL Node.js library install করা হয়
+- Data cloud DB তে রাখলে যেমন Neon DB
+  - Neon DB account → project create → connection string পাবো
+- Connection string example:
+  postgres://username:password@host:port/database
 
-সব POST route এর আগে app.use(express.urlencoded({ extended: true })) লিখতে হবে।
-
-যদি middleware না দাও → req.body undefined হবে।
-
-extended: true দিলে nested objects parse করা যায়, false হলে simple key-value parsing হয়।
-
-🔹 নতুনদের জন্য সহজ ভাষায়
-
-মনে করো client একটি ছোট form লিখে পাঠাচ্ছে।
-express.urlencoded() হলো সেই middleware যা সেই form data খুলে বুঝে এবং req.body তে ব্যবহারযোগ্যভাবে রাখে।
-
-
-
-১️⃣ PostgreSQL install করা
-
-তুমি npm install pg দিয়ে PostgreSQL Node.js library install করেছ।
-
-এটা Node.js থেকে PostgreSQL database এর সাথে connect হতে সাহায্য করে।
-
-২️⃣ Data কোথায় রাখবো
-
-তুমি cloud database ব্যবহার করবে, যেমন Neon DB।
-
-Neon DB-তে account খোলা → project create করা → database ready → connection string পাওয়া যাবে।
-
-Connection string হলো এমন একটা URL যা দিয়ে Node.js থেকে database-এ connect করা যায়।
-
-উদাহরণ:
-
-postgres://username:password@host:port/database
-
-৩️⃣ Connection string ব্যবহার এবং pool
-
-Pool হলো connection pool।
-
-Neon বা অন্য cloud DB-তে অনেক request আসতে পারে → প্রতিটা request জন্য নতুন connection খোলা সময় এবং resource খরচ।
-
-Pool ব্যবহার করলে fixed number of connections তৈরি থাকবে যা সব request share করবে।
-
-Pool না থাকলে:
-
-প্রতিটি request এ নতুন connection খুলতে হবে → slow performance, resource heavy, possible connection overload।
-
-Server crash বা database limit exceed হওয়ার সম্ভাবনা বেশি।
-
-Pool থাকলে:
-
-একবারে অনেক request efficiently handle করা যায়।
-
-Connection reuse হয়, latency কমে।
-
-৪️⃣ Node.js + PostgreSQL Pool Example
-import { Pool } from "pg";
-
-// Neon DB বা অন্য cloud DB এর connection string
+🔹 Pool কি?
+- Pool = fixed number of connections যা request গুলো share করে
+- Pool না থাকলে:
+  - প্রতিটি request এ নতুন connection খোলা হবে → slow, resource heavy, possible crash
+- Pool থাকলে:
+  - Connection reuse হয়, latency কমে, multiple request efficiently handle হয়
+*/
 const connectionString = "postgres://username:password@host:port/database";
 
-// Pool তৈরি করা
 const pool = new Pool({
-  connectionString,  // DB connect info
-  max: 10,           // maximum 10 connections in pool
+  connectionString, // DB connect info
+  max: 10, // maximum 10 connections in pool
 });
 
-// Query example
+/*
+৭. Query example
+--------------------------------------------------------
+- Pool ব্যবহার করে DB query করা হয়
+- async/await দিয়ে query handle করা হয়
+- result.rows → query result
+*/
 async function getUsers() {
   const result = await pool.query("SELECT * FROM users");
   console.log(result.rows);
@@ -157,12 +118,12 @@ async function getUsers() {
 
 getUsers();
 
-
-✅ এখানে pool:
-
-১০টা connection তৈরি করে রাখে
-
-যেকোনো request এ connection reuse করা যায়
-
-
-কাজ শেষে connection pool এ ফেরত যায় → ready for next request
+/*
+৮. Server start
+--------------------------------------------------------
+- app.listen → server run করে
+- callback → server start হলে console log
+*/
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});

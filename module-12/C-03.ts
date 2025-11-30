@@ -1,129 +1,59 @@
-/*
-========================================================
-Express + TypeScript + PostgreSQL: JSON, Form Data, Pool
-========================================================
-*/
+// ------------------------------
+// 📌 PostgreSQL Pool Setup
+// ------------------------------
 
-/*
-১. Import libraries
---------------------------------------------------------
-- express → main framework
-- Request, Response → TypeScript type annotations
-- pg → PostgreSQL Node.js library
-*/
-import express, { Request, Response } from "express";
+// pg থেকে Pool ইমপোর্ট করি (Database connection manage করার জন্য)
 import { Pool } from "pg";
 
-/*
-২. App instance & port
---------------------------------------------------------
-- express() call করলে একটি server instance পাওয়া যায়
-- app হলো central object, route ও middleware handle করে
-*/
-const app = express();
-const port = 5000;
-
-/*
-৩. Middleware: JSON parse
---------------------------------------------------------
-🔹 কেন লিখি app.use(express.json())?
-- Express default-এ POST বা PUT request এর body parse করে না
-- "parse" মানে হলো data কে analyze করে machine-readable structure বা format-এ রূপান্তর করা
-- express.json() middleware JSON data parse করে এবং req.body তে রাখে
-
-🔹 কী হয়:
-- Client POST request পাঠালে যেমন: { "name": "Anwar", "age": 17 }
-- Middleware parse করে: req.body = { name: "Anwar", age: 17 }
-- Route function-এ req.body.name ব্যবহার করা যায়
-
-🔹 ভুল এড়ানোর টিপস:
-- middleware না দিলে req.body হবে undefined
-- সব route-এর আগে middleware declare করতে হবে
-*/
-app.use(express.json());
-
-/*
-৪. Middleware: URL-encoded Form Data parse
---------------------------------------------------------
-🔹 কেন ব্যবহার করি?
-- HTML form সাধারণত POST method দিয়ে data পাঠায় URL-encoded format এ
-  যেমন: name=Anwar&age=17
-- express.urlencoded() সেই data parse করে object আকারে req.body তে রাখে
-
-🔹 কীভাবে কাজ করে:
-- Client form পাঠায়:
-<form method="POST" action="/submit">
-  <input name="name" value="Anwar">
-  <input name="age" value="17">
-  <button type="submit">Send</button>
-</form>
-- Middleware parse করে:
-req.body = { name: "Anwar", age: "17" }
-- Route function-এ সহজে ব্যবহার করা যায়
-
-🔹 ভুল এড়ানোর টিপস:
-- সব POST route এর আগে app.use(express.urlencoded({ extended: true })) declare করতে হবে
-- extended: true → nested objects parse করা যায়
-- extended: false → simple key-value parse হয়
-
-🔹 নতুনদের জন্য সহজ ভাষায়:
-- Client form পাঠাচ্ছে → express.urlencoded() middleware খুলে বুঝে req.body তে দেয়
-*/
-app.use(express.urlencoded({ extended: true }));
-
-/*
-৫. Example route: GET "/"
---------------------------------------------------------
-- req → client request এর তথ্য ধারণ করে
-- res → server response পাঠানোর জন্য
-*/
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
-
-/*
-৬. PostgreSQL + Pool setup
---------------------------------------------------------
-- npm install pg দিয়ে PostgreSQL Node.js library install করা হয়
-- Data cloud DB তে রাখলে যেমন Neon DB
-  - Neon DB account → project create → connection string পাবো
-- Connection string example:
-  postgres://username:password@host:port/database
-
-🔹 Pool কি?
-- Pool = fixed number of connections যা request গুলো share করে
-- Pool না থাকলে:
-  - প্রতিটি request এ নতুন connection খোলা হবে → slow, resource heavy, possible crash
-- Pool থাকলে:
-  - Connection reuse হয়, latency কমে, multiple request efficiently handle হয়
-*/
-const connectionString = "postgres://username:password@host:port/database";
-
+// Pool হলো একটা Connection Manager
+// এটা অনেকগুলো database connection ওপেন রাখে,
+// এবং প্রতিটি query কে available connection দিয়ে execute করে।
 const pool = new Pool({
-  connectionString, // DB connect info
-  max: 10, // maximum 10 connections in pool
+  // .env ফাইল থেকে DB connection string নেওয়া হচ্ছে
+  connectionString: `${process.env.CONNECTION_STR}`,
 });
 
-/*
-৭. Query example
---------------------------------------------------------
-- Pool ব্যবহার করে DB query করা হয়
-- async/await দিয়ে query handle করা হয়
-- result.rows → query result
-*/
-async function getUsers() {
-  const result = await pool.query("SELECT * FROM users");
-  console.log(result.rows);
-}
+// ------------------------------
+// 📌 Database Initialize Function
+// ------------------------------
+// এটি async কারণ এখানে আমরা query গুলো await দিয়ে চালাবো।
+const initDB = async () => {
+  // ---------------------------------------
+  // 1️⃣ Users Table তৈরি
+  // ---------------------------------------
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS users(
+      id SERIAL PRIMARY KEY,             -- Auto-increment ID (1,2,3...) + Primary Key
+      name VARCHAR(100) NOT NULL,        -- User name (সর্বোচ্চ 100 ক্যারেক্টার, ফাঁকা রাখা যাবে না)
+      email VARCHAR(150) UNIQUE NOT NULL,-- Unique email (ডুপ্লিকেট হবে না, ফাঁকা হবে না)
+      age INT,                           -- বয়স (সংখ্যা)
+      phone VARCHAR(15),                 -- ফোন নম্বর
+      address TEXT,                      -- বড় টেক্সট (Address)
+      created_at TIMESTAMP DEFAULT NOW(),-- Row তৈরি হওয়ার সময় auto-set
+      updated_at TIMESTAMP DEFAULT NOW() -- Row আপডেট হলে auto-set
+    )
+  `);
 
-getUsers();
+  // ---------------------------------------
+  // 2️⃣ Todos Table তৈরি
+  // ---------------------------------------
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS todos(
+      id SERIAL PRIMARY KEY,                     -- Auto-increment todo ID
+      user_id INT REFERENCES users(id)           -- users টেবিলের id কে refer করছে (FK)
+                ON DELETE CASCADE,               -- User delete হলে তার todos-ও delete হবে
+      title VARCHAR(200) NOT NULL,               -- Todo title (ফাঁকা রাখা যাবে না)
+      description TEXT,                          -- Todo details
+      completed BOOLEAN DEFAULT false,           -- Default status = অসম্পূর্ণ
+      due_date DATE,                             -- Date format (deadline)
+      created_at TIMESTAMP DEFAULT NOW(),        -- তৈরি হওয়ার সময়
+      updated_at TIMESTAMP DEFAULT NOW()         -- আপডেট হওয়ার সময়
+    )
+  `);
+};
 
-/*
-৮. Server start
---------------------------------------------------------
-- app.listen → server run করে
-- callback → server start হলে console log
-*/
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// ------------------------------
+// 📌 রান করা: Database Initialize
+// ------------------------------
+// এই ফাংশন কল করলে উপরের দুইটা টেবিল তৈরি হয়ে যাবে (যদি আগে না থাকে)
+initDB();
