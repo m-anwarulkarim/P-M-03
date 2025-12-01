@@ -79,5 +79,5 @@ Module 13 — Fundamentals of Web Application with Nodejs
 | 09 | 🔏 **JWT Theory & Token Generation** |
 | 10 | 🔏 **Higher-Order Functions & Auth Middleware** |
 | 11 | 🔏 **Auth Middleware & Declaring User in a Namespace.** |
-| 12 | 🔏 **coming soon...** |
-| 13 | 🔏 **coming soon...** |
+| 12 | 🔏 **Issue Solving & Role-Based Authentication** |
+| 13 | 🔏 **Reviewing Our Work So Far** |

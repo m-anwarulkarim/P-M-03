@@ -1,13 +1,14 @@
 import express, { Request, Response } from "express";
 import { Pool } from "pg";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5001;
 
 app.use(express.json());
 
-const connectionString =
-  "postgresql://neondb_owner:npg_fpWk5F6hmOza@ep-raspy-grass-ahova66u-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
+const connectionString = process.env.connectionString;
 
 const pool = new Pool({
   connectionString,
@@ -197,6 +198,34 @@ app.put("/user/:id", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+  }
+});
+
+// Todo Croud
+
+app.post("/todo", async (req, res) => {
+  const { user_id, title } = req.body;
+
+  try {
+    const result = await pool.query(
+      `
+      INSERT INTO todos (user_id, title) 
+      VALUES ($1,$2)
+      RETURNING * 
+      `,
+      [user_id, title]
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "todo creaded successfully",
+      data: result.rows[0],
+    });
+  } catch (error: any) {
+    res.status(404).json({
+      success: false,
+      message: error.message,
+    });
   }
 });
 

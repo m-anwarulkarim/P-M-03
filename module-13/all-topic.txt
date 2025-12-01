@@ -1,0 +1,13 @@
+| 01 | 🔏 **Module Introduction** |
+| 02 | 🔏 **Why Configuration Is Important?** |
+| 03 | 🔏 **Cleaning server.ts with user.routes.ts.** |
+| 04 | 🔏 **Implementing Business Logic in user.service.ts.** |
+| 05 | 🔏 **Rearranging the User Module** |
+| 06 | 🔏 **Understanding Authentication & Authorization.** |
+| 07 | 🔏 **Creating Password Field & Hashing Passwords.** |
+| 08 | 🔏 **Bcrypt Comparison & Introduction to JWT.** |
+| 09 | 🔏 **JWT Theory & Token Generation** |
+| 10 | 🔏 **Higher-Order Functions & Auth Middleware** |
+| 11 | 🔏 **Auth Middleware & Declaring User in a Namespace.** |
+| 12 | 🔏 **Issue Solving & Role-Based Authentication** |
+| 13 | 🔏 **Reviewing Our Work So Far** |
