@@ -48,3 +48,36 @@ Module 11 — Building Modular APIs with Express.js
 | 09 | 🔏 **Handling Dynamic Routes** |
 | 10 | 🔏 **Dynamic Route Handling for PUT Requests** |
 | 11 | 🔏 **Module Summary...** |
+
+Module 12 — CRUD Operations with Express, TypeScript & PostgreSQL
+📚 Topics Covered
+| No. | Topic |
+| --- | ------ |
+| 01 | 🔏 **Create a simple server with express.js & typescript .mp4** |
+| 02 | 🔏 **Installing Postgres as database** |
+| 03 | 🔏 **Connect with database using pool** |
+| 04 | 🔏 **Solve the previous error, add .env & connect with GitHub** |
+| 05 | 🔏 **Create our first User using POST** |
+| 06 | 🔏 **Getting All Users & single user using params.** |
+| 07 | 🔏 **Update with PUT Method & Delete with DELETE Method.** |
+| 08 | 🔏 **Delete API & Todo Post** |
+| 09 | 🔏 **Not Found Route & Middleware.** |
+| 10 | 🔏 **Module Summary.** |
+
+Module 13 — Fundamentals of Web Application with Nodejs
+📚 Topics Covered
+| No. | Topic |
+| --- | ------ |
+| 01 | 🔏 **Module Introduction** |
+| 02 | 🔏 **Why Configuration Is Important?** |
+| 03 | 🔏 **Cleaning server.ts with user.routes.ts.** |
+| 04 | 🔏 **Implementing Business Logic in user.service.ts.** |
+| 05 | 🔏 **Rearranging the User Module** |
+| 06 | 🔏 **Understanding Authentication & Authorization.** |
+| 07 | 🔏 **Creating Password Field & Hashing Passwords.** |
+| 08 | 🔏 **Bcrypt Comparison & Introduction to JWT.** |
+| 09 | 🔏 **JWT Theory & Token Generation** |
+| 10 | 🔏 **Higher-Order Functions & Auth Middleware** |
+| 11 | 🔏 **Auth Middleware & Declaring User in a Namespace.** |
+| 12 | 🔏 **coming soon...** |
+| 13 | 🔏 **coming soon...** |

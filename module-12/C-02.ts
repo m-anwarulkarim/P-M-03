@@ -45,7 +45,7 @@ app.use(express.json());
 /*
 ৪. Middleware: URL-encoded Form Data parse
 --------------------------------------------------------
-🔹 কেন ব্যবহার করি?
+🔹app.use(express.urlencoded({ extended: true })) কেন ব্যবহার করি?
 - HTML form সাধারণত POST method দিয়ে data পাঠায় URL-encoded format এ
   যেমন: name=Anwar&age=17
 - express.urlencoded() সেই data parse করে object আকারে req.body তে রাখে
