@@ -1,3 +1,5 @@
+// app.ts server.ts config/ middleware/  modules/
+
 // =====================================================
 // Application Flow Summary
 // =====================================================
@@ -9,7 +11,7 @@
 /*
 
 ┌─────────────┐
-│  server.ts  │   ← অ্যাপ চালু করা, PORT set, env load
+│  server.ts  │   ← অ্যাপ চালু করা, 
 └─────┬───────┘
       │                                                                                                 
       ▼
@@ -246,6 +248,8 @@ export default logger;
 │ • initDb() function          │
 │ • সব SQL query centralize করা│
 └──────────────────────────────┘
+
+
 
 
 */
