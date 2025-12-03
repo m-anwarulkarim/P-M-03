@@ -1,5 +1,5 @@
 import { pool } from "../../config/db.js";
-import { Paylode, Paylode2 } from "../../interface/req&resType.js";
+import { Paylode } from "../../interface/req&resType.js";
 
 const createUser = async (paylode: Paylode) => {
   const { name, email } = paylode;
@@ -7,6 +7,7 @@ const createUser = async (paylode: Paylode) => {
     `INSERT INTO users(name, email) VALUES($1, $2) RETURNING *`,
     [name, email]
   );
+  console.log(result);
   return result;
 };
 

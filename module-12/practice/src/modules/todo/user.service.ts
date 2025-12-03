@@ -1,14 +1,14 @@
 import { pool } from "../../config/db.js";
+import { Paylode2 } from "../../interface/req&resType.js";
 
-// Record<string, unkown> = {key: value}
-const createTodo = async (payload: Record<string, unknown>) => {
+const createTodo = async (payload: Paylode2) => {
   const { user_id, title } = payload;
   const result = await pool.query(
     `INSERT INTO todos(user_id, title) VALUES($1, $2) RETURNING *`,
     [user_id, title]
   );
 
-  return result;
+  return result.rows[0];
 };
 
 const getTodos = async () => {

@@ -7,7 +7,7 @@ export interface Paylode {
   email: string;
 }
 export interface Paylode2 {
-  name: string;
-  email: string;
-  id: string;
+  user_id: string;
+  title: string;
 }
+// user_id, title

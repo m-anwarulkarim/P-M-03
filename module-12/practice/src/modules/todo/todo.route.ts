@@ -3,14 +3,14 @@ import { todoControllers } from "./todo.controller.js";
 
 const router = Router();
 
-router.post("/", todoControllers.createTodo);
+router.post("/todo", todoControllers.createTodo);
 
-router.get("/", todoControllers.getTodos);
+router.get("/todo", todoControllers.getTodos);
 
-router.get("/:id", todoControllers.getSingleTodo);
+router.get("/todo/:id", todoControllers.getSingleTodo);
 
-router.put("/:id", todoControllers.updateTodo);
+router.put("/todo/:id", todoControllers.updateTodo);
 
-router.delete("/:id", todoControllers.deleteTodo);
+router.delete("/todo/:id", todoControllers.deleteTodo);
 
 export const todoRoutes = router;

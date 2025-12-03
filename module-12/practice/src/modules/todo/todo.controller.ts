@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { todoServices } from "./user.service.js";
-
 const createTodo = async (req: Request, res: Response) => {
   try {
     const result = await todoServices.createTodo(req.body);
@@ -8,7 +7,7 @@ const createTodo = async (req: Request, res: Response) => {
     res.status(201).json({
       success: true,
       message: "Todo created",
-      data: result.rows[0],
+      data: result,
     });
   } catch (err: any) {
     res.status(500).json({
