@@ -42,14 +42,7 @@ export const loggerMiddleware = (
     const timestamp = getBangladeshTime(); // 🕒 BD Time
 
     const log = `
-============================================
-📌 REQUEST LOG
---------------------------------------------
 🕒 Time:         ${timestamp}
-🔹 Method:       ${req.method}
-🔹 URL:          ${req.originalUrl}
-🔹 Status Code:  ${res.statusCode}
-🔹 Duration:     ${duration}ms
 ============================================
     `;
 

@@ -60,3 +60,4 @@ Role অনুযায়ী route protect
 
 if (user.role !== "admin") return res.status(403).json({ message: "Forbidden" });
 */
+// 1.jwt ke hijibiji keno kra hosse  2.

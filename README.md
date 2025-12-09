@@ -18,11 +18,11 @@
 
 ### 📚 Topics Covered
 
-| No.   | Topic                                            |
-| ----- | ------------------------------------------------ |
-| 01    | 🔏 How the Web Works                             |
-| 02    | 🔏 Frontend, Backend Development & Scaling Ideas |
-| 03–13 | 🔏 Coming soon...                                |
+| No.   | Topic                                            | Link      |
+| ----- | ------------------------------------------------ | --------- |
+| 01    | 🔏 How the Web Works                             | [View](#) |
+| 02    | 🔏 Frontend, Backend Development & Scaling Ideas | [View](#) |
+| 03–13 | 🔏 Coming soon...                                | [View](#) |
 
 ---
 
@@ -30,19 +30,19 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                             |
-| --- | --------------------------------- |
-| 01  | 🔏 Reading Files (fs module)      |
-| 02  | 🔏 Writing & Appending Files      |
-| 03  | 🔏 Deleting Files                 |
-| 04  | 🔏 path Module Introduction       |
-| 05  | 🔏 File Organizer CLI — Part 1    |
-| 06  | 🔏 File Organizer CLI — Part 2    |
-| 07  | 🔏 os Module Introduction         |
-| 08  | 🔏 Hashing Data (crypto module)   |
-| 09  | 🔏 Encrypting & Decrypting        |
-| 10  | 🔏 Using dotenv for Configuration |
-| 11  | 🔏 Module Summary                 |
+| No. | Topic                             | Link      |
+| --- | --------------------------------- | --------- |
+| 01  | 🔏 Reading Files (fs module)      | [View](#) |
+| 02  | 🔏 Writing & Appending Files      | [View](#) |
+| 03  | 🔏 Deleting Files                 | [View](#) |
+| 04  | 🔏 path Module Introduction       | [View](#) |
+| 05  | 🔏 File Organizer CLI — Part 1    | [View](#) |
+| 06  | 🔏 File Organizer CLI — Part 2    | [View](#) |
+| 07  | 🔏 os Module Introduction         | [View](#) |
+| 08  | 🔏 Hashing Data (crypto module)   | [View](#) |
+| 09  | 🔏 Encrypting & Decrypting        | [View](#) |
+| 10  | 🔏 Using dotenv for Configuration | [View](#) |
+| 11  | 🔏 Module Summary                 | [View](#) |
 
 ---
 
@@ -50,19 +50,19 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                              |
-| --- | ---------------------------------- |
-| 01  | 🔏 Environment-Based Configuration |
-| 02  | 🔏 API Routes & GET vs POST        |
-| 03  | 🔏 Deep Dive into API Routes       |
-| 04  | 🔏 Creating a Custom Router        |
-| 05  | 🔏 Using Custom Route Handler      |
-| 06  | 🔏 sendJson & Cleaning server.ts   |
-| 07  | 🔏 parseBody & Clean POST API      |
-| 08  | 🔏 Fake JSON Database Setup        |
-| 09  | 🔏 Handling Dynamic Routes         |
-| 10  | 🔏 PUT Request Handling            |
-| 11  | 🔏 Module Summary                  |
+| No. | Topic                              | Link      |
+| --- | ---------------------------------- | --------- |
+| 01  | 🔏 Environment-Based Configuration | [View](#) |
+| 02  | 🔏 API Routes & GET vs POST        | [View](#) |
+| 03  | 🔏 Deep Dive into API Routes       | [View](#) |
+| 04  | 🔏 Creating a Custom Router        | [View](#) |
+| 05  | 🔏 Using Custom Route Handler      | [View](#) |
+| 06  | 🔏 sendJson & Cleaning server.ts   | [View](#) |
+| 07  | 🔏 parseBody & Clean POST API      | [View](#) |
+| 08  | 🔏 Fake JSON Database Setup        | [View](#) |
+| 09  | 🔏 Handling Dynamic Routes         | [View](#) |
+| 10  | 🔏 PUT Request Handling            | [View](#) |
+| 11  | 🔏 Module Summary                  | [View](#) |
 
 ---
 
@@ -70,18 +70,18 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                                        |
-| --- | -------------------------------------------- |
-| 01  | 🔏 Simple Express + TypeScript Server        |
-| 02  | 🔏 Installing PostgreSQL                     |
-| 03  | 🔏 Connecting Database using Pool            |
-| 04  | 🔏 Fixing Errors, Adding .env & GitHub Setup |
-| 05  | 🔏 Creating First User (POST)                |
-| 06  | 🔏 Getting All Users & Single User           |
-| 07  | 🔏 Update Using PUT & Delete Method          |
-| 08  | 🔏 Delete API & Todo POST                    |
-| 09  | 🔏 Not Found Route & Middleware              |
-| 10  | 🔏 Module Summary                            |
+| No. | Topic                                        | Link      |
+| --- | -------------------------------------------- | --------- |
+| 01  | 🔏 Simple Express + TypeScript Server        | [View](#) |
+| 02  | 🔏 Installing PostgreSQL                     | [View](#) |
+| 03  | 🔏 Connecting Database using Pool            | [View](#) |
+| 04  | 🔏 Fixing Errors, Adding .env & GitHub Setup | [View](#) |
+| 05  | 🔏 Creating First User (POST)                | [View](#) |
+| 06  | 🔏 Getting All Users & Single User           | [View](#) |
+| 07  | 🔏 Update Using PUT & Delete Method          | [View](#) |
+| 08  | 🔏 Delete API & Todo POST                    | [View](#) |
+| 09  | 🔏 Not Found Route & Middleware              | [View](#) |
+| 10  | 🔏 Module Summary                            | [View](#) |
 
 ---
 
@@ -89,20 +89,20 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                                       |
-| --- | ------------------------------------------- |
-| 01  | 🔏 Module Introduction                      |
-| 02  | 🔏 Why Configuration Matters                |
-| 03  | 🔏 Cleaning server.ts with user.routes.ts   |
-| 04  | 🔏 Business Logic in user.service.ts        |
-| 05  | 🔏 Rearranging the User Module              |
-| 06  | 🔏 Authentication & Authorization           |
-| 07  | 🔏 Creating Password Field & Hashing        |
-| 08  | 🔏 Bcrypt Comparison & JWT Intro            |
-| 09  | 🔏 JWT Theory & Token Generation            |
-| 10  | 🔏 Higher-Order Functions & Auth Middleware |
-| 11  | 🔏 Declaring User in Namespace              |
-| 12  | 🔏 Role-Based Authentication                |
-| 13  | 🔏 Review & Summary                         |
+| No. | Topic                                       | Link                                        |
+| --- | ------------------------------------------- | ------------------------------------------- |
+| 01  | 🔏 Module Introduction                      | [View](./module-09/C-01-.txt)               |
+| 02  | 🔏 Why Configuration Matters                | [View](./module-09/C-02-FronendBackend.txt) |
+| 03  | 🔏 Cleaning server.ts with user.routes.ts   | [View](./module-09/C-03- WebEvolved.js)     |
+| 04  | 🔏 Business Logic in user.service.ts        | [View](./module-09/C-01-.txt)               |
+| 05  | 🔏 Rearranging the User Module              | [View](#)                                   |
+| 06  | 🔏 Authentication & Authorization           | [View](#)                                   |
+| 07  | 🔏 Creating Password Field & Hashing        | [View](#)                                   |
+| 08  | 🔏 Bcrypt Comparison & JWT Intro            | [View](#)                                   |
+| 09  | 🔏 JWT Theory & Token Generation            | [View](#)                                   |
+| 10  | 🔏 Higher-Order Functions & Auth Middleware | [View](#)                                   |
+| 11  | 🔏 Declaring User in Namespace              | [View](#)                                   |
+| 12  | 🔏 Role-Based Authentication                | [View](#)                                   |
+| 13  | 🔏 Review & Summary                         | [View](#)                                   |
 
 ---

@@ -3,6 +3,7 @@ import initDB, { pool } from "./config/db.js";
 import { loggerMiddleware } from "./middleware/logger.js";
 import { userRouter } from "./modules/user/user.route.js";
 import { todoRoutes } from "./modules/todo/todo.route.js";
+import { authRouter } from "./modules/auth/auth.route.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ initDB();
 // users
 app.use(userRouter);
 app.use(todoRoutes);
+app.use("/api/v1/auth", authRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello Next Level Developers!");

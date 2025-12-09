@@ -5,6 +5,7 @@ import { userService } from "./user.service.js";
 const createUser = async (req: Request, res: Response) => {
   try {
     const result = await userService.createUser(req.body);
+
     res.status(201).json({
       success: false,
       message: "Data Instered Successfully",
