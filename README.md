@@ -18,11 +18,18 @@
 
 ### 📚 Topics Covered
 
-| No.   | Topic                                            | Link      |
-| ----- | ------------------------------------------------ | --------- |
-| 01    | 🔏 How the Web Works                             | [View](#) |
-| 02    | 🔏 Frontend, Backend Development & Scaling Ideas | [View](#) |
-| 03–13 | 🔏 Coming soon...                                | [View](#) |
+| No. | Topic                                            | Link                                                                       |
+| --- | ------------------------------------------------ | -------------------------------------------------------------------------- |
+| 01  | 🔏 How the Web Works                             | [View](./module-09/C-01-.txt)                                              |
+| 02  | 🔏 Frontend, Backend Development & Scaling Ideas | [View](./module-09/C-02-FronendBackend.txt)                                |
+| 03  | 🔏 Coming soon...                                | [View](./module-09/C-03-WebEvolved.js)                                     |
+| 04  | 🔏 Coming soon...                                | [View](./module-09/C-04-HowNode.jsCameIntoThePlay.js)                      |
+| 05  | 🔏 Coming soon...                                | [View](./module-09/C-05-EvenDrivenArchitectureofNode.js)                   |
+| 06  | 🔏 Coming soon...                                | [View](./module-09/C-06-SingleThreadedNodejsVSMultithreadedServer.js)      |
+| 07  | 🔏 Coming soon...                                | [View](./module-09/C-07-RuntimeDifferences&TheGameChangerConceptOfIIFE.js) |
+| 08  | 🔏 Coming soon...                                | [View](./module-09/class-08)                                               |
+| 09  | 🔏 Coming soon...                                | [View](./module-09/C-09.TXT)                                               |
+| 10  | 🔏 Coming soon...                                | [View](./module-09/C-10.TXT)                                               |
 
 ---
 
@@ -30,19 +37,19 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                             | Link      |
-| --- | --------------------------------- | --------- |
-| 01  | 🔏 Reading Files (fs module)      | [View](#) |
-| 02  | 🔏 Writing & Appending Files      | [View](#) |
-| 03  | 🔏 Deleting Files                 | [View](#) |
-| 04  | 🔏 path Module Introduction       | [View](#) |
-| 05  | 🔏 File Organizer CLI — Part 1    | [View](#) |
-| 06  | 🔏 File Organizer CLI — Part 2    | [View](#) |
-| 07  | 🔏 os Module Introduction         | [View](#) |
-| 08  | 🔏 Hashing Data (crypto module)   | [View](#) |
-| 09  | 🔏 Encrypting & Decrypting        | [View](#) |
-| 10  | 🔏 Using dotenv for Configuration | [View](#) |
-| 11  | 🔏 Module Summary                 | [View](#) |
+| No. | Topic                             | Link                               |
+| --- | --------------------------------- | ---------------------------------- |
+| 01  | 🔏 Reading Files (fs module)      | [View](module-10/C-01.js)          |
+| 02  | 🔏 Writing & Appending Files      | [View](module-10/C-02.js)          |
+| 03  | 🔏 Deleting Files                 | [View](module-10/C-03.js)          |
+| 04  | 🔏 path Module Introduction       | [View](module-10/C-04.js)          |
+| 05  | 🔏 File Organizer CLI — Part 1    | [View](module-10/C-05.js)          |
+| 06  | 🔏 File Organizer CLI — Part 2    | [View](module-10/C-06.js)          |
+| 07  | 🔏 os Module Introduction         | [View](module-10/C-07.js)          |
+| 08  | 🔏 Hashing Data (crypto module)   | [View](module-10/C-08.js)          |
+| 09  | 🔏 Encrypting & Decrypting        | [View](module-10/C-09.js)          |
+| 10  | 🔏 Using dotenv for Configuration | [View](module-10/C-10.js)          |
+| 11  | 🔏 Module Summary                 | [View](module-10/allTopicList.txt) |
 
 ---
 
@@ -50,19 +57,19 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                              | Link      |
-| --- | ---------------------------------- | --------- |
-| 01  | 🔏 Environment-Based Configuration | [View](#) |
-| 02  | 🔏 API Routes & GET vs POST        | [View](#) |
-| 03  | 🔏 Deep Dive into API Routes       | [View](#) |
-| 04  | 🔏 Creating a Custom Router        | [View](#) |
-| 05  | 🔏 Using Custom Route Handler      | [View](#) |
-| 06  | 🔏 sendJson & Cleaning server.ts   | [View](#) |
-| 07  | 🔏 parseBody & Clean POST API      | [View](#) |
-| 08  | 🔏 Fake JSON Database Setup        | [View](#) |
-| 09  | 🔏 Handling Dynamic Routes         | [View](#) |
-| 10  | 🔏 PUT Request Handling            | [View](#) |
-| 11  | 🔏 Module Summary                  | [View](#) |
+| No. | Topic                              | Link                           |
+| --- | ---------------------------------- | ------------------------------ |
+| 01  | 🔏 Environment-Based Configuration | [View](module-11/C-01.ts)      |
+| 02  | 🔏 API Routes & GET vs POST        | [View](module-11/C-02.ts)      |
+| 03  | 🔏 Deep Dive into API Routes       | [View](module-11/C-03.ts)      |
+| 04  | 🔏 Creating a Custom Router        | [View](module-11/C-04.ts)      |
+| 05  | 🔏 Using Custom Route Handler      | [View](module-11/C-05.ts)      |
+| 06  | 🔏 sendJson & Cleaning server.ts   | [View](module-11/C-06.ts)      |
+| 07  | 🔏 parseBody & Clean POST API      | [View](module-11/C-07.ts)      |
+| 08  | 🔏 Fake JSON Database Setup        | [View](module-11/C-08.ts)      |
+| 09  | 🔏 Handling Dynamic Routes         | [View](module-11/C-09.ts)      |
+| 10  | 🔏 PUT Request Handling            | [View](module-11/C-10.ts)      |
+| 11  | 🔏 Module Summary                  | [View](module-11/allTopic.txt) |
 
 ---
 
@@ -70,18 +77,18 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                                        | Link      |
-| --- | -------------------------------------------- | --------- |
-| 01  | 🔏 Simple Express + TypeScript Server        | [View](#) |
-| 02  | 🔏 Installing PostgreSQL                     | [View](#) |
-| 03  | 🔏 Connecting Database using Pool            | [View](#) |
-| 04  | 🔏 Fixing Errors, Adding .env & GitHub Setup | [View](#) |
-| 05  | 🔏 Creating First User (POST)                | [View](#) |
-| 06  | 🔏 Getting All Users & Single User           | [View](#) |
-| 07  | 🔏 Update Using PUT & Delete Method          | [View](#) |
-| 08  | 🔏 Delete API & Todo POST                    | [View](#) |
-| 09  | 🔏 Not Found Route & Middleware              | [View](#) |
-| 10  | 🔏 Module Summary                            | [View](#) |
+| No. | Topic                                        | Link                      |
+| --- | -------------------------------------------- | ------------------------- |
+| 01  | 🔏 Simple Express + TypeScript Server        | [View](module-12/C-01.ts) |
+| 02  | 🔏 Installing PostgreSQL                     | [View](module-12/C-02.ts) |
+| 03  | 🔏 Connecting Database using Pool            | [View](module-12/C-03.ts) |
+| 04  | 🔏 Fixing Errors, Adding .env & GitHub Setup | [View](module-12/C-04.ts) |
+| 05  | 🔏 Creating First User (POST)                | [View](module-12/C-05.ts) |
+| 06  | 🔏 Getting All Users & Single User           | [View](module-12/C-06.ts) |
+| 07  | 🔏 Update Using PUT & Delete Method          | [View](module-12/C-07.ts) |
+| 08  | 🔏 Delete API & Todo POST                    | [View](module-12/C-08.ts) |
+| 09  | 🔏 Not Found Route & Middleware              | [View](module-12/C-09.ts) |
+| 10  | 🔏 Module Summary                            | [View](module-12/)        |
 
 ---
 
@@ -89,20 +96,20 @@
 
 ### 📚 Topics Covered
 
-| No. | Topic                                       | Link                                        |
-| --- | ------------------------------------------- | ------------------------------------------- |
-| 01  | 🔏 Module Introduction                      | [View](./module-09/C-01-.txt)               |
-| 02  | 🔏 Why Configuration Matters                | [View](./module-09/C-02-FronendBackend.txt) |
-| 03  | 🔏 Cleaning server.ts with user.routes.ts   | [View](./module-09/C-03- WebEvolved.js)     |
-| 04  | 🔏 Business Logic in user.service.ts        | [View](./module-09/C-01-.txt)               |
-| 05  | 🔏 Rearranging the User Module              | [View](#)                                   |
-| 06  | 🔏 Authentication & Authorization           | [View](#)                                   |
-| 07  | 🔏 Creating Password Field & Hashing        | [View](#)                                   |
-| 08  | 🔏 Bcrypt Comparison & JWT Intro            | [View](#)                                   |
-| 09  | 🔏 JWT Theory & Token Generation            | [View](#)                                   |
-| 10  | 🔏 Higher-Order Functions & Auth Middleware | [View](#)                                   |
-| 11  | 🔏 Declaring User in Namespace              | [View](#)                                   |
-| 12  | 🔏 Role-Based Authentication                | [View](#)                                   |
-| 13  | 🔏 Review & Summary                         | [View](#)                                   |
+| No. | Topic                                       | Link                            |
+| --- | ------------------------------------------- | ------------------------------- |
+| 01  | 🔏 Module Introduction                      | [View](module-13/C-01.ts)       |
+| 02  | 🔏 Why Configuration Matters                | [View](module-13/C-02.ts)       |
+| 03  | 🔏 Cleaning server.ts with user.routes.ts   | [View](module-13/C-03.ts)       |
+| 04  | 🔏 Business Logic in user.service.ts        | [View](module-13/C-04.ts)       |
+| 05  | 🔏 Rearranging the User Module              | [View](module-13/C-05.ts)       |
+| 06  | 🔏 Authentication & Authorization           | [View](module-13/C-06.ts)       |
+| 07  | 🔏 Creating Password Field & Hashing        | [View](module-13/C-07.ts)       |
+| 08  | 🔏 Bcrypt Comparison & JWT Intro            | [View](module-13/C-08.ts)       |
+| 09  | 🔏 JWT Theory & Token Generation            | [View](module-13/C-09.ts)       |
+| 10  | 🔏 Higher-Order Functions & Auth Middleware | [View](module-13/C-10.ts)       |
+| 11  | 🔏 Declaring User in Namespace              | [View](module-13/C-11.ts)       |
+| 12  | 🔏 Role-Based Authentication                | [View](module-13......../)      |
+| 13  | 🔏 Review & Summary                         | [View](module-13/all-topic.txt) |
 
 ---
