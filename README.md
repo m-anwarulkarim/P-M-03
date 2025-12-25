@@ -1,6 +1,6 @@
 # 🚀 Mission - 03
 
-## Node.js, Express.js, TypeScript & PostgreSQL — Complete Learning Journey
+## Node.js, Express.js With TypeScript & PostgreSQL — Complete Learning Journey
 
 ---
 
